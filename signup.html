@@ -11,45 +11,257 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="inner.css">
+    <link rel="stylesheet" href="loginTop.css">
+    <style>
+        /* password eye */
+        .pw { position: relative; display: block; }
+        .pw input { width: 100%; padding-right: 44px; }
+        .pw-toggle {
+            position: absolute; right: 6px; transform: translateY(0%);
+            width: 34px; height: 34px; display: grid; place-items: center;
+            background: none; border: 0; border-radius: 6px; color: #666;
+            cursor: pointer; transition: color .2s, background .2s;
+        }
+        .pw-toggle:hover { color: #111; background: rgba(0, 0, 0, .05); }
+        .pw-toggle:focus-visible { outline: 2px solid #b6f000; }
+
+        /* role select */
+        .sel { position: relative; display: block; }
+        .sel select {
+            width: 100%; appearance: none; -webkit-appearance: none;
+            padding: 12px 40px 12px 14px; font: 400 15px "Inter", sans-serif;
+            color: inherit; background: #fff; border: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 8px; cursor: pointer;
+        }
+        .sel select:invalid { color: #8a8a8a; }
+        .sel select:focus { outline: none; border-color: #b6f000; }
+        .sel::after {
+            content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            font-size: 12px; color: #666; pointer-events: none;
+        }
+
+        /* validation + success */
+        .f small, .chk small { display: none; color: #d93025; font-size: 13px; margin-top: 4px; }
+        .f.has-error small, .chk.has-error small { display: block; }
+        .f.has-error input,
+        .f.has-error select { border-color: #d93025; }
+        .ok { display: none; }
+        .ok.show { display: flex; align-items: center; gap: 8px; }
+    </style>
 </head>
 
 <body class="auth-pg">
-    <header class="nav">
-        <div class="wrap nav-in"><a href="./index.html" class="logo">✦ Stackly</a><button class="burger"
-                aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-            <nav class="menu"><a href="./index.html">Homepage</a><a href="./about.html">About Us</a><a
-                    href="./service.html">Services</a><a href="./blog.html">Blog Page</a><a
-                    href="./contact.html">Contact Us</a></nav><a href="./login.html" class="btn dark">Login</a>
-        </div>
+
+    <header class="auth-top">
+        <a href="./index.html" class="logo"><img src="./logo/Untitled design (1)-compressed_11zon.webp" alt="Stackly"></a>
+        <a href="./index.html" class="auth-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to site
+        </a>
     </header>
+
     <main class="auth">
         <div class="auth-img">
             <h2>Mapping the future <span>from above</span></h2>
         </div>
+
         <div class="auth-box">
             <h1>Create account</h1>
             <p>Start tracking your surveys and downloads.</p>
-            <form class="form" data-f novalidate><label class="f">Name<input id="name" name="name" type="text"
-                        placeholder="Your name" data-r="name"><small>Please enter a valid name</small></label><label
-                    class="f">Email<input id="email" name="email" type="email" placeholder="you@company.com"
-                        data-r="email"><small>Please enter a valid email</small></label><label class="f">Password<span
-                        class="pw"><input id="p1" type="password" placeholder="Min. 8 characters" data-r="pass"><button
-                            type="button" aria-label="Show password"><i
-                                class="fa-solid fa-eye"></i></button></span><small>Minimum 8
-                        characters</small></label><label class="f">Confirm password<span class="pw"><input id="p2"
-                            type="password" placeholder="Min. 8 characters" data-r="pass" data-m="#p1"><button
-                            type="button" aria-label="Show password"><i
-                                class="fa-solid fa-eye"></i></button></span><small>Passwords must match (min. 8
-                        characters)</small></label>
-                <div class="chk"><input type="checkbox" id="tc" required><label for="tc">I agree to the terms &amp;
-                        privacy policy</label></div>
-                <div class="ok"><i class="fa-solid fa-circle-check"></i> Success! (Connect this form to your backend.)
-                </div><button class="btn lime">Sign Up</button>
+
+            <form class="form" id="signupForm" novalidate>
+
+                <label class="f">Name
+                    <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name">
+                    <small></small>
+                </label>
+
+                <label class="f">Email
+                    <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email">
+                    <small></small>
+                </label>
+
+                <label class="f">Role
+                    <span class="sel">
+                        <select id="role" name="role" required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </span>
+                    <small></small>
+                </label>
+
+                <label class="f">Password
+                    <span class="pw">
+                        <input id="p1" name="password" type="password" placeholder="Min. 8 characters"
+                            autocomplete="new-password">
+                        <button type="button" class="pw-toggle" aria-label="Show password" aria-pressed="false">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </span>
+                    <small></small>
+                </label>
+
+                <label class="f">Confirm password
+                    <span class="pw">
+                        <input id="p2" name="confirm" type="password" placeholder="Re-enter your password"
+                            autocomplete="new-password">
+                        <button type="button" class="pw-toggle" aria-label="Show password" aria-pressed="false">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </span>
+                    <small></small>
+                </label>
+
+                <div class="chk">
+                    <input type="checkbox" id="tc" name="terms">
+                    <label for="tc">I agree to the terms &amp; privacy policy</label>
+                    <small style="width:100%"></small>
+                </div>
+
+                <div class="ok" id="signupNote" role="status">
+                    <i class="fa-solid fa-circle-check"></i> <span></span>
+                </div>
+
+                <button class="btn lime" type="submit">Sign Up</button>
+
                 <p class="alt">Already registered? <a href="./login.html">Login</a></p>
             </form>
         </div>
     </main>
-    <script src="inner.js"></script>
+
+    <script src="signup.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("signupForm");
+  if (!form) return;
+
+  const note = document.getElementById("signupNote");
+  const noteText = note.querySelector("span");
+
+  // ---------- helpers ----------
+  function showError(input, message) {
+    const field = input.closest(".f, .chk");
+    field.classList.add("has-error");
+    field.querySelector("small").textContent = message;
+  }
+
+  function clearField(input) {
+    const field = input.closest(".f, .chk");
+    if (!field) return;
+    field.classList.remove("has-error");
+    field.querySelector("small").textContent = "";
+  }
+
+  function clearErrors() {
+    form.querySelectorAll(".f, .chk").forEach(function (f) {
+      f.classList.remove("has-error");
+      f.querySelector("small").textContent = "";
+    });
+    note.classList.remove("show");
+    noteText.textContent = "";
+  }
+
+  // clear a field's error as soon as the user edits it
+  form.querySelectorAll("input, select").forEach(function (el) {
+    el.addEventListener("input", function () { clearField(el); });
+    el.addEventListener("change", function () { clearField(el); });
+  });
+
+  // ---------- submit ----------
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearErrors();
+
+    const name = form.name;
+    const email = form.email;
+    const role = form.role;
+    const password = form.password;
+    const confirm = form.confirm;
+    const terms = form.terms;
+    let valid = true;
+
+    // Name
+    const nameValue = name.value.trim();
+    if (nameValue === "") {
+      showError(name, "Name is required");
+      valid = false;
+    } else if (nameValue.length < 2) {
+      showError(name, "Please enter a valid name");
+      valid = false;
+    }
+
+    // Email
+    const emailValue = email.value.trim();
+    if (emailValue === "") {
+      showError(email, "Email is required");
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(emailValue)) {
+      showError(email, "Please enter a valid email address");
+      valid = false;
+    }
+
+    // Role
+    if (role.value === "") {
+      showError(role, "Please select your role");
+      valid = false;
+    }
+
+    // Password
+    if (password.value.trim() === "") {
+      showError(password, "Password is required");
+      valid = false;
+    } else if (password.value.length < 8) {
+      showError(password, "Password must be at least 8 characters");
+      valid = false;
+    }
+
+    // Confirm password
+    if (confirm.value === "") {
+      showError(confirm, "Please confirm your password");
+      valid = false;
+    } else if (confirm.value !== password.value) {
+      showError(confirm, "Passwords do not match");
+      valid = false;
+    }
+
+    // Terms
+    if (!terms.checked) {
+      showError(terms, "You must accept the terms to continue");
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Demo only: replace with a real API call. Never store the password.
+    localStorage.setItem("signupName", nameValue);
+    localStorage.setItem("signupEmail", emailValue);
+    localStorage.setItem("signupRole", role.value);
+
+    // Success + redirect to login
+    noteText.textContent = "Account created! Redirecting to login...";
+    note.classList.add("show");
+
+    setTimeout(function () {
+      window.location.href = "login.html";
+    }, 1200);
+  });
+
+  // ---------- password show / hide (both fields) ----------
+  document.querySelectorAll(".pw-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const input = btn.parentElement.querySelector("input");
+      const show = input.type === "password";
+
+      input.type = show ? "text" : "password";
+      btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+      btn.setAttribute("aria-pressed", String(show));
+      btn.querySelector("i").className = show ? "fa-solid fa-eye-slash" : "fa-solid fa-eye";
+    });
+  });
+});
+    </script>
 </body>
 
 </html>

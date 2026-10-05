@@ -1,0 +1,55 @@
+.auth-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    padding: 0 clamp(16px, 4vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2d2c2b;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    z-index: 50;
+}
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #111;
+    text-decoration: none;
+}
+
+.auth-logo i {
+    color: #b6f000; /* match your lime accent */
+}
+
+.auth-back {
+    display: inline-flex;
+    background: #fff;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 999px;
+    font: 500 14px "Inter", sans-serif;
+    color: #111;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+}
+
+.auth-back:hover {
+    background: #111;
+    border-color: #111;
+    color: #fff;
+}
+
+/* keep the existing layout from sliding under the fixed bar */
+body.auth-pg .auth {
+    padding-top: 64px;
+    box-sizing: border-box;
+}
