@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stackly – Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+</head>
+
+<body class="auth-pg">
+    <header class="nav">
+        <div class="wrap nav-in"><a href="./index.html" class="logo">✦ Stackly</a><button class="burger"
+                aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            <nav class="menu"><a href="./index.html">Homepage</a><a href="./about.html">About Us</a><a
+                    href="./service.html">Services</a><a href="./blog.html">Blog Page</a><a
+                    href="./contact.html">Contact Us</a></nav><a href="./login.html" class="btn dark">Login</a>
+        </div>
+    </header>
+    <main class="auth">
+        <div class="auth-img">
+            <h2>Mapping the future <span>from above</span></h2>
+        </div>
+        <div class="auth-box">
+            <h1>Welcome back</h1>
+            <p>Log in to view your survey deliverables.</p>
+            <form class="form" data-f novalidate><label class="f">Email<input id="email" name="email" type="email"
+                        placeholder="you@company.com" data-r="email"><small>Please enter a valid
+                        email</small></label><label class="f">Password<span class="pw"><input id="p1" type="password"
+                            placeholder="Min. 8 characters" data-r="pass"><button type="button"
+                            aria-label="Show password"><i class="fa-solid fa-eye"></i></button></span><small>Minimum 8
+                        characters</small></label>
+                <div class="chk"><input type="checkbox" id="rm"><label for="rm">Remember me</label></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i> Success! (Connect this form to your backend.)
+                </div><button class="btn lime">Login</button>
+                <p class="alt">New here? <a href="./signup.html">Create an account</a></p>
+            </form>
+        </div>
+    </main>
+    <script src="inner.js"></script>
+</body>
+
+</html>

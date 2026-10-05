@@ -1,0 +1,58 @@
+/* inner.css — load AFTER style.css on About/Service/Blog/Contact/Login/Signup */
+.nav-in{animation-delay:0s}
+.pg{min-height:56vh;display:flex;align-items:flex-end;padding:150px 0 60px;color:#fff;background:linear-gradient(180deg,#0006,#000c),url("./drones/drone-flying-above-mountain-landscape-on-overcast-2026-03-17-05-30-53-utc-compressed.webp") center/cover,#171615}
+.pg h1{font-size:clamp(48px,8vw,84px);animation:up 1s .1s backwards}.pg h1 span{color:var(--lime)}
+.pg p{max-width:560px;margin-top:14px;animation:up 1s .3s backwards}
+.crumb{display:flex;gap:8px;margin-bottom:14px;font-weight:500;animation:up 1s backwards}.crumb a:hover{color:var(--lime)}.crumb i{font-size:11px;align-self:center;color:var(--lime)}
+.cta{margin-bottom:60px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.two .ph{height:480px}
+.two .bar{margin-bottom:20px}
+.sgrid b[data-c]{min-height:1em}
+.stats{padding:60px 0}
+.tl-item{padding-bottom:40px}
+.plan.hot{overflow:visible}
+.ci{display:flex;gap:16px;align-items:center;padding:18px;background:#f4f4f4;border-radius:var(--r);margin-bottom:14px;transition:transform .3s,box-shadow .3s}
+.ci:hover{transform:translateX(8px);box-shadow:0 12px 26px #0001}.ci .ico{width:52px;height:52px;font-size:20px}
+.ci h4{font-size:24px}.ci p{color:var(--mut)}
+.ct{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;text-align:left}
+.panel{background:#f4f4f4;padding:36px;border-radius:14px}.panel h3{font-size:34px;margin-bottom:18px}
+.form{display:grid;gap:16px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:grid;gap:6px;font-weight:600;font-size:14px;text-align:left}
+.f input,.f select,.f textarea{width:100%;padding:14px 16px;border:1px solid #d6d6d0;border-radius:6px;font:400 16px Inter;background:#fff;color:var(--ink);transition:border .25s,box-shadow .25s}
+.f textarea{min-height:130px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 3px #c8e65a99}
+.f small{display:none;color:#d6402a;font-weight:500}.f.err small{display:block}.f.err input,.f.err select,.f.err textarea{border-color:#d6402a}
+.pw{position:relative}.pw input{padding-right:46px}.pw button{position:absolute;right:6px;top:50%;translate:0 -50%;width:38px;height:38px;border:0;background:none;color:#777;cursor:pointer}
+.chk{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:500}.chk input{accent-color:#7d9a10;width:18px;height:18px}
+.ok{display:none;padding:14px;border-radius:6px;background:var(--lime);font-weight:600}.ok.show{display:block;animation:up .5s}
+.form .btn{width:100%;text-align:center}
+.alt{text-align:center;font-size:15px;color:var(--mut)}.alt a{font-weight:600;color:var(--ink);text-decoration:underline}
+.auth-pg .nav{background:var(--ink)}
+.auth{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.auth-img{position:relative;display:flex;align-items:flex-end;padding:50px;color:#fff;background:linear-gradient(180deg,#0003,#000b),url("./aerial%20view%20lands/aerial-view-of-terraced-landscape-with-green-water-2026-03-19-10-22-33-utc-compressed.webp") center/cover,#171615}
+.auth-img h2{font-size:clamp(40px,4.5vw,64px)}.auth-img h2 span{color:var(--lime)}
+.auth-box{align-self:center;width:100%;max-width:520px;margin:0 auto;padding:130px 24px 60px;animation:up .9s backwards}
+.auth-box h1{font-size:54px}.auth-box>p{color:var(--mut);margin-bottom:26px}
+.chips2{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+.chips2 button{border:0;padding:9px 20px;border-radius:20px;background:#f1f1ee;font:600 15px Inter;cursor:pointer;transition:.25s}
+.chips2 button:hover{transform:translateY(-3px)}.chips2 .on{background:var(--ink);color:var(--lime)}
+.post{transition:transform .35s,box-shadow .35s,opacity .4s}.post.off{display:none}
+.post .meta{color:var(--mut);font-size:14px}
+.card p{color:#ddd}.card .ico{margin-bottom:20px}
+@media(max-width:960px){
+ .two,.ct,.auth{grid-template-columns:1fr}.two .ph{height:340px}.auth-img{min-height:240px;padding:100px 24px 28px}.auth-img h2{font-size:38px}.auth-box{padding-top:36px}
+}
+@media(max-width:560px){.row2{grid-template-columns:1fr}.panel{padding:24px 18px}.pg{min-height:48vh}.auth-box h1{font-size:44px}}
+
+/* images in every section */
+@keyframes kb{from{transform:scale(1.12)}}
+.pg{position:relative;overflow:hidden;background:#171615}
+.pg>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:kb 18s ease-out both}
+.pg::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#0005,#000c)}
+.pg .wrap{position:relative;z-index:2;width:100%}
+.bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;z-index:0;pointer-events:none}
+.bgi.mul{mix-blend-mode:multiply;opacity:.3}
+.ph.wide{height:300px;margin-bottom:50px}
+.cta{overflow:hidden}.cta>.wrap,.stats>.wrap{position:relative;z-index:1}.stats{position:relative;overflow:hidden}
+@media(max-width:560px){.ph.wide{height:200px}}
