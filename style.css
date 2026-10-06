@@ -507,3 +507,249 @@ img,video,svg{max-width:100%}
 
 /* ===== WHY CHOOSE US: transparent PNG drone (no radius, no crop) ===== */
 .drone img{border-radius:0;aspect-ratio:auto;object-fit:contain;box-shadow:none;background:none;max-width:60%;max-height:100%;width:auto;height:auto;filter:drop-shadow(0 30px 30px #0003)}
+
+
+/* ===== RESPONSIVE FOOTER FIX ===== */
+
+.foot {
+    padding: 60px 0 0;
+    overflow-x: clip;
+}
+
+.fgrid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+    gap: 32px;
+    width: 100%;
+    min-width: 0;
+}
+
+.fgrid > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.fgrid .logo {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.fgrid p,
+.fgrid a {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.fgrid h5 {
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.news {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+
+.news input {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+}
+
+.news button,
+.news .btn {
+    flex: 0 0 auto;
+    max-width: 100%;
+}
+
+.contact {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+    padding-top: 28px;
+}
+
+.contact > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+.contact > div > div,
+.contact > div > p,
+.contact > div > a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact .ico {
+    flex: 0 0 45px;
+    width: 45px;
+    height: 45px;
+}
+
+.copy {
+    width: calc(100% - 40px);
+    max-width: 1170px;
+    margin: 40px auto 0;
+    padding: 22px 0;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 960px) {
+    .foot {
+        padding-top: 48px;
+    }
+
+    .fgrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 36px 24px;
+    }
+
+    .contact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+/* Mobile: 425px, 375px and 320px */
+@media (max-width: 560px) {
+    .foot {
+        padding-top: 40px;
+    }
+
+    .foot > .wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .fgrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .fgrid > div {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .fgrid > div:first-child .logo {
+        width: 120px;
+        max-width: 100%;
+        height: 50px;
+        font-size: 36px;
+    }
+
+    .fgrid .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .fgrid h5 {
+        font-size: 22px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+    }
+
+    .fgrid a:not(.btn):not(.logo) {
+        margin-bottom: 10px;
+    }
+
+    .fgrid > div:first-child p {
+        margin: 12px 0 18px;
+        padding-bottom: 18px;
+    }
+
+    .soc {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .news {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .news input {
+        font-size: 14px;
+        padding-left: 4px;
+    }
+
+    .news .btn,
+    .news button {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .contact {
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding-top: 24px;
+    }
+
+    .contact > div {
+        gap: 12px;
+    }
+
+    .contact .ico {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .copy {
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px 0;
+        font-size: 13px;
+    }
+}
+
+/* Extra-small screens: 320px */
+@media (max-width: 350px) {
+    .foot > .wrap {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .fgrid {
+        gap: 26px;
+    }
+
+    .fgrid h5 {
+        font-size: 20px;
+    }
+
+    .news {
+        gap: 4px;
+        padding: 6px;
+    }
+
+    .news input {
+        font-size: 13px;
+    }
+
+    .news .btn,
+    .news button {
+        padding: 9px 8px;
+        font-size: 12px;
+    }
+
+    .contact .ico {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+}
